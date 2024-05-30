@@ -107,10 +107,10 @@ points, corners = fractal1.GenerateFractal(IFS,1/3,np.array([0,0]))
 
 '''
 Some combinations of scale and corners that i found cool are listed below:
-    corners = 6 (6th corner at center) scale = 1/3, probability_array = np.array([]) (equal probability for all points)
-    corners = 5 (5th corner at center) scale = 1/3, probability_array = np.array([]) (equal probability for all points)
-    corners = 4 (4th corner at center) scale = 1/3, np.array([1/10,1/10,1/10]) or np.array([1/10,1/10,1/10,7/10]) both will work since the function calculates the probability for the missing corner.
-    corners = 4  scale = 1/3, probability_array = np.array([]) (equal probability for all points)
-    corners = 3 scale = 1/2,  probability_array = np.array([]) (equal probability for all points)
+Fractal1: corners = 6 (6th corner at center) scale = 1/3, probability_array = np.array([]) (equal probability for all points)
+Fractal2: corners = 5 (5th corner at center) scale = 1/3, probability_array = np.array([]) (equal probability for all points)
+Fractal3: corners = 4 (4th corner at center) scale = 1/3, np.array([1/10,1/10,1/10]) or np.array([1/10,1/10,1/10,7/10]) both will work since the function calculates the probability for the missing corner.
+Fractal4: corners = 4  scale = 1/3, probability_array = np.array([]) (equal probability for all points)
+Fractal5: corners = 3 scale = 1/2,  probability_array = np.array([]) (equal probability for all points)
 I have also included the images of these generated fractals in the Images folder of this repo.
 '''
