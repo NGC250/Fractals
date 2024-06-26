@@ -1,7 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import librosa as aud
-from PIL import Image
 
 class ChaosGame:
     
@@ -62,6 +60,7 @@ class ChaosGame:
             IFS_array = np.append(IFS_array,subarray)
 
         np.random.shuffle(IFS_array)
+        
         return IFS_array
 
     def GenerateFractal(self, IFS, scale, starting_pos):
@@ -83,8 +82,6 @@ class ChaosGame:
             update = corners[j-1]
             pos[i] = scale*pos[i-1] + (1-scale)*update
             
-            print("currently evaluating:",i+1)
-            
         plt.figure(figsize=(10,10)) #Change accordingly
         plt.scatter(pos[:,0],pos[:,1], s = 1, color='green', label='Fractal points') #Change accordingly
         plt.scatter(corners[:,0],corners[:,1],s = 4, color='red', label='Corners') #Change accordingly
@@ -93,7 +90,8 @@ class ChaosGame:
             plt.title(f"{num_corners} cornered chaos game, scale factor = {scale:.2f}")
         elif z == 1:
             plt.title(f"{num_corners} cornered chaos game with corner {num_corners} at center, scale factor = {scale:.2f}")
-        plt.legend() 
+        plt.legend()
+        plt.show()
         
         return pos, corners
 
@@ -105,12 +103,13 @@ fractal1 = ChaosGame(num_corners)
 IFS = fractal1.GenerateIFS(probability_array,num_points)
 points, corners = fractal1.GenerateFractal(IFS,1/3,np.array([0,0]))
 
+
 '''
 Some combinations of scale and corners that i found cool are listed below:
-Fractal1: corners = 6 (6th corner at center) scale = 1/3, probability_array = np.array([]) (equal probability for all points)
-Fractal2: corners = 5 (5th corner at center) scale = 1/3, probability_array = np.array([]) (equal probability for all points)
-Fractal3: corners = 4 (4th corner at center) scale = 1/3, np.array([1/10,1/10,1/10]) or np.array([1/10,1/10,1/10,7/10]) both will work since the function calculates the probability for the missing corner.
-Fractal4: corners = 4  scale = 1/3, probability_array = np.array([]) (equal probability for all points)
-Fractal5: corners = 3 scale = 1/2,  probability_array = np.array([]) (equal probability for all points)
+    corners = 6 (6th corner at center) scale = 1/3, probability_array = np.array([]) (equal probability for all points)
+    corners = 5 (5th corner at center) scale = 1/3, probability_array = np.array([]) (equal probability for all points)
+    corners = 4 (4th corner at center) scale = 1/3, np.array([1/10,1/10,1/10]) or np.array([1/10,1/10,1/10,7/10]) both will work since the function calculates the probability for the missing corner.
+    corners = 4  scale = 1/3, probability_array = np.array([]) (equal probability for all points)
+    corners = 3 scale = 1/2,  probability_array = np.array([]) (equal probability for all points)
 I have also included the images of these generated fractals in the Images folder of this repo.
 '''
